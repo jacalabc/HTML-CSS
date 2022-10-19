@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo flexbox-ver</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            color: #665544;
+            box-sizing: border-box;
+            margin: 0;
+            text-align: center;
+        }
+        body {
+            width: 960px;
+            margin: 250px auto;
+        }
+        .nav, 
+        .content,
+        .footer {
+            background-color: #efefef;
+            padding: 10px;
+            margin: 10px;
+        }
+        .item {
+            background-color: #efefef;
+            width: 300px;
+            /* width: 33%; */
+            float: left;
+            margin: 10px;
+            padding: 10px;
+        }
+        .nav{
+            display: flex;
+            justify-content: center;            
+        }
+        .nav>a{
+            margin-right: 25px;
+        }
+        .content{
+            clear: both;
+            display: flex;
+            justify-content: space-around;
+        }
+        .content2{
+            clear: both;
+            display: flex;           
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+    <h1>Logo</h1>
+        <div class="nav">            
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">Services</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>            
+        </div>
+    </div>
+        <div class="content">
+            Feature
+        </div>
+        <div class="content2">
+            <div class="item item1">
+                Column One
+            </div>
+            <div class="item item2">
+                Column Two
+            </div>
+            <div class="item item3">
+                Column Three
+            </div>
+        </div>
+        
+        <div class="footer">
+            @Copyright2022
+        </div>
+</body>
+</html>
