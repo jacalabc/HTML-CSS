@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* width 600以下 */
+        /* 練習 p mobile sont-size 24px red */
+        h1{
+            color: red;
+        }
+        p{
+            color: red;
+            font-size: 24px;
+        }
+        /* width 600以上 */
+        /* 練習 p tablet sont-size 20px green */
+        @media only screen and (min-width:600px){
+            h1{
+            color: green;
+        }
+            p{
+            color: green;
+            font-size: 20px;
+            }
+        }
+        /* width 768以上 */
+        /* 練習 p desktop sont-size 16px blue */
+        @media only screen and (min-width:768px){
+            h1{
+            color: blue;
+        }
+            p{
+            color: blue;
+            font-size: 16px;
+            }
+        }
+        /* flexbox */
+        /* 3 row box*/
+        .container{
+            display: flex;
+            width: 1000px;
+            height: 500px;
+            background-color: #ccc;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .item{
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+        }
+        /* 練習
+            desktop 3
+            tablet 2
+            mobile 1
+        */
+        @media only screen and(min-width:600px){
+
+        }
+        @media only screen and(min-width:768px){
+
+}
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+    <p>Web pages can be viewed using many different devices: desktops, tablets, and phones. Your web page should look good, and be easy to use, regardless of the device.</p>
+    <!-- <div class="container">
+        <div class="item item1">ONE</div>
+        <div class="item item2">TWO</div>
+        <div class="item item3">THREE</div>
+    </div>-->
+</body>
+</html>
