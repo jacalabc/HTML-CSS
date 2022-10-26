@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            width: 100%;
+            height: 200px;
+            background-color: lightcoral;
+        }
+        .content-left{
+            float: left;
+            width: 50%;
+            height: 200px;
+            background-color: aqua;          
+        }
+        .content-right{
+            float: left;
+            width: 50%;
+            height: 200px;
+            background-color: burlywood;
+            position: relative;
+            top: 5px;
+            left: 20px;
+        }
+        footer{
+            clear: both;
+            width: 100%;
+            height: 200px;
+            background-color: lightseagreen;
+        }
+        .box-red{
+            width: 50px;
+            height: 50px;
+            background-color:red;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 練習增加一個紅色box 放在 content-right 的左下角 -->
+    <header></header>
+    <div class="content-left"></div>
+    <div class="content-right">
+        <div class="box-red"></div>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
