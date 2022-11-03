@@ -12,25 +12,29 @@
     .box {
         /* height: 500px; */
         /* 使用者螢幕高度單位 相對 */
-        height: 80vh;
+        /* height: 80vh; */
+        overflow: hidden;
     }
 
     #f1 {
         background-color: burlywood;
+        height: 80vh;
     }
 
     #f2 {
         background-color: rgb(9, 163, 219);
+        height: 80vh;
     }
 
     #f3 {
         background-color: rgb(204, 130, 173);
+        height: 80vh;
     }
 </style>
 
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Logo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -65,26 +69,25 @@
     </nav>
 
     <div class="container-fluid mt-3 box" id="f1">
-        <h3>space</h3>
         <h3>Navbar With Dropdown</h3>
         <p>This example adds a dropdown menu in the navbar.</p>
         <div class="row" style="justify-content:space-evenly">
             <div class="card mt-3 col-4" style="width: 18rem;padding-top: 10px;">
-                <img src="https://picsum.photos/id/17/200/300" class="card-img-top" alt="...">
+                <img src="https://picsum.photos/id/17/200/300" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
                 </div>
             </div>
             <div class="card mt-3 col-4" style="width: 18rem;padding-top: 10px;">
-                <img src="https://picsum.photos/id/25/200/300" class="card-img-top" alt="...">
+                <img src="https://picsum.photos/id/25/200/300" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
                 </div>
             </div>
             <div class="card mt-3 col-4" style="width: 18rem;padding-top: 10px;">
-                <img src="https://picsum.photos/id/29/200/300" class="card-img-top" alt="...">
+                <img src="https://picsum.photos/id/29/200/300" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's content.</p>
@@ -107,13 +110,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://picsum.photos/id/17/1000/300" class="d-block mx-auto" alt="...">
+                        <img src="https://picsum.photos/id/49/1200/300" class="d-block mx-auto w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://picsum.photos/id/25/1000/300" class="d-block mx-auto" alt="...">
+                        <img src="https://picsum.photos/id/25/1200/300" class="d-block mx-auto w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://picsum.photos/id/29/1000/300" class="d-block mx-auto" alt="...">
+                        <img src="https://picsum.photos/id/29/1200/300" class="d-block mx-auto w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -157,9 +160,81 @@
     <div class="container-fluid mt-3 box" id="f3">
         <h3>Navbar With Dropdown</h3>
         <p>This example adds a dropdown menu in the navbar.</p>
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-            <h3>Loading...</h3>
+        <div class="btn-group">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+          
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Right-aligned menu
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+          
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+              Left-aligned, right-aligned lg
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+          
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+              Right-aligned, left-aligned lg
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+          
+          <div class="btn-group dropstart">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropstart
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+          
+          <div class="btn-group dropend">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropend
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
+          </div>
+          
+          <div class="btn-group dropup">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropup
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+              <li><a class="dropdown-item" href="#">Menu item</a></li>
+            </ul>
           </div>
     </div>
 
