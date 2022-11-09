@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="myText1">Hello UwU</h1>
+    <h1 id="myText2">Hello =w=</h1>
+    <h1 id="myText3">Hello OwO</h1>
+    <script>
+        let i = 1;
+        i = i + 1;
+        // php echo = javascript console.log();
+        // java vs javascript(js)
+        // 牛 vs 牛蒡 不一樣的東西:D
+        console.log(i);
+
+
+        const myText1 = document.getElementById('myText1');
+        console.log(myText1);
+        console.log('this is name',myText1);
+
+        // 1. innertext 改文字
+        // 2. contentText 改文字
+        // 3. innerHTML 改成html
+        document.getElementById('myText1').innerText="<hr>UwU";
+        document.getElementById('myText2').textContent="<hr>=w=";
+        document.getElementById('myText3').innerHTML="<hr>OwO";
+        
+    </script>
+</body>
+
+</html>
