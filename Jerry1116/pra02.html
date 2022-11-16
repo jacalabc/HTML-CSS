@@ -7,9 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="num1"></h1>
-    <h1 id="num2"></h1>
-    <h1 id="numtotal"></h1>
+    <div>
+        <p>Num1 = <span id="num1"></span></p>
+    </div>
+    <div>
+        <p>Num2 = <span id="num2"></span></p>
+    </div>
+    <div>
+        <p>Sum = <span id="numtotal"></span></p>
+    </div>
     <script>
         // 練習 prompt num1
         // 練習 prompt num2
@@ -20,11 +26,19 @@
         // 記得轉型 Number()
         // NaN not a number 如果文字轉成數字
         let num1 = Number(prompt('數字1?'));
-        document.getElementById('num1').innerHTML="num1 = " + num1;
+        // document.getElementById('num1').innerHTML="num1 = " + num1;
         let num2 = Number(prompt('數字2?'));
-        document.getElementById('num2').innerHTML="num2 = " + num2;        
-        let numtotal = num1 + num2;
-        document.getElementById('numtotal').innerHTML="num1 + num2 = " + numtotal;
+        // document.getElementById('num2').innerHTML="num2 = " + num2;        
+        // let numtotal = num1 + num2;
+        // document.getElementById('numtotal').innerHTML="num1 + num2 = " + numtotal;
+
+        const myNum1 = document.getElementById('num1');
+        const myNum2 = document.getElementById('num2');
+        const mySum = document.getElementById('numtotal');
+        let sum = num1 + num2;
+        myNum1.textContent = num1;
+        myNum2.textContent = num2;
+        mySum.textContent = sum;
     </script>
 </body>
 </html>
