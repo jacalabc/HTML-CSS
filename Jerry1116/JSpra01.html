@@ -11,6 +11,7 @@
     <h2 id="myH2">test</h2>
     <h3 id="myH3">test</h3>
     <button type="button" id="myBtn">myBtn</button>
+    <button type="button" id="myBtn2">myBtn2</button>
     <script>
         // 練習 抓出location.href 顯示在h1
         // 練習 抓出screen.width顯示在h2
@@ -32,6 +33,12 @@
             // location.replace('http://www.w3schools.com');
             // Location Object Properties
             location.href = "./JSback.html";
+        });
+
+        document.getElementById('myBtn2').addEventListener('click',function(){
+            console.log('myBtn ok');
+            location.assign('./hello.html');
+            location.href = "./hello.html";
         });
     </script>
 </body>
