@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="H1">123</h1>
+    <h1 id="H2">456</h1>
+    <script>
+        // let myName = prompt('name?');
+        // console.log(myName);
+
+        // 練習 prompt輸入text
+        // 練習 prompt輸入number
+        // 前端 顯示出來
+        let myText = prompt('文字?');
+        console.log(myText);
+        let myNumber = prompt('數字?');
+        console.log(myNumber);
+        document.getElementById('H1').innerText=myText;
+        document.getElementById('H2').innerText=myNumber;
+    </script>
+</body>
+</html>
