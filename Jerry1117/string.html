@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js字串相加 +
+        // php字串相加 .
+        function sayHello(name,age){
+            // 字串相加
+            myString1 = "hello"+name+name+name+age;
+        
+            // js字串含有變數  php字串含有變數
+            // js `${變數}`   php "hello $name"
+            myString2=`hello ${name} :D age = ${age}`;
+            console.log(myString1);
+            console.log(myString2);
+        }
+        sayHello('jerry',25);
+    </script>
+</body>
+</html>
