@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prompt 輸入分數 -->
+    <!-- 顯示 你的成績與得分 p -->
+    <h3>成績判斷</h3>
+    <h3>分數 : <span id="score">0</span></h3>
+    <h3>評分 : <span id="grade">0</span></h3>
+    <script>
+        const myscore = document.getElementById('score');
+        const mygrade = document.getElementById('grade');    
+
+        let score = prompt('分數?');
+        let grade = "";
+        if(score>89){
+            grade = "A";
+        }else if(score>=60){
+            grade = "B";
+        }else{
+            grade = "不及格";            
+            mygrade.style.color="red";
+        }
+        document.getElementById('score').textContent=score;
+        mygrade.textContent=grade;
+        
+    </script>
+</body>
+</html>
