@@ -7,21 +7,43 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <p>Num1 = <span id="num1"></span></p>
+    </div>
+    <div>
+        <p>Num2 = <span id="num2"></span></p>
+    </div>
+    <div>
+        <p>Sum = <span id="numtotal"></span></p>
+    </div>
+
+    <button type="button" onclick="test();">testbuttom</button>
     <script>
+        // function
         function greeting(){
             console.log('Hi :D');
         }
-        greeting();
-
-        function getSum(hehe,xd){
+         function getSum(hehe,xd){
             let result = hehe + xd;
             console.log('this is getSum',result);
             return result;
         }
-        let a = 10;
-        let b = 20;
-        let resultSum = getSum(a,b);
+        // 抓id
+        const myNum1 = document.getElementById('num1');
+        const myNum2 = document.getElementById('num2');
+        const mySum = document.getElementById('numtotal');
+
+        // 數字1,數字2
+        let num1 = Number(prompt('數字1?'));
+        let num2 = Number(prompt('數字2?'));
+
+        // run主程式
+        let resultSum = getSum(num1,num2);
         console.log('this is resultSum',resultSum);
+
+        myNum1.textContent = num1;
+        myNum2.textContent = num2;
+        mySum.textContent = resultSum;
     </script>
 </body>
 </html>
