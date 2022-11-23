@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var varX =2;  //在function外宣告varX，varX屬於全域變數
+        function cal() { 
+            console.log('ex varX', varX);
+            //ex varX會顯示undefined，因為在function內屬於區域變數，而且還沒宣告varX的值
+
+            //如果註解掉 console.log('ex varX', varX);
+            //則varX會被賦予的值為5，因為有在function內宣告區域變數varX=5
+            //而function外的varX的值會是2
+            //因為console.log('varX',varX);在function外
+            //得到的值是屬於全域變數varX=2
+            var varX = 5, varY = 1; 
+            console.log('varX + varY',varX + varY);
+        }
+        cal();
+        console.log('varX',varX);
+
+    </script>
+</body>
+</html>
