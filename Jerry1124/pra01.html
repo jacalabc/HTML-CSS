@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>九九乘法表</h3>
+    <span id="num1"></span>
+    <span id="num2"></span>
+    <span id="sum"></span>
+    <script>
+        // 9 9 乘法表
+        // 練習
+        // 輸入兩個數字  num1 x num2 乘法表
+        // 使用 prompt 
+        let Num1 = prompt('被乘數?');
+        let Num2 = prompt('乘數?');
+        for (let i = 1; i <= Num1; i++) {
+            for (let k = 1; k <= Num2; k++) {               
+                let istr = `${i}`.padStart(2, '0'); 
+                let kstr = `${k}`.padStart(2, '0');   
+                let sum = `${istr} X ${kstr}`;  
+                let zero = `${istr * kstr}`.padStart(2, '0');
+                let TEXT = sum + '=' + zero;
+                document.write(TEXT);
+                document.write('&nbsp&nbsp&nbsp&nbsp');
+            }
+            document.write('<br>');
+        }
+    </script>
+</body>
+</html>
