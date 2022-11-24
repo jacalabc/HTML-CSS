@@ -22,10 +22,25 @@
         
 
         // p tag
+        // object
         console.log('myPInput', myPInput);
-        // myPInput.style.color = "red"; //改紅色字體
+        console.log('myPInput typeof ', typeof(myPInput));
+        // string
+        console.log('before myPInput.style.color', myPInput.style.color);
+        console.log('before myPInput.style.color typeof ', typeof(myPInput.style.color));
+
+        myPInput.style.color = "red"; //改紅色字體
+        // object
+        console.log('after myPInput', myPInput);
+        console.log('after myPInput typeof ', typeof(myPInput));
+        // string
+        console.log('after myPInput.style.color', myPInput.style.color);
+        console.log('after myPInput.style.color typeof ', typeof(myPInput.style.color));
+
+        // console.log('myPInput', myPInput);
         // myPInput.textContent = "55688"; //改文字
         // myPInput.textContent = "55688"; //改文字
+
 
         // input
         let myTextData = myText.value;
