@@ -12,15 +12,21 @@
     <script>
         for (let i = 1; i <= 9; i++) {
             for (let k = 1; k <= 9; k++) {
-                let str = `${i} * ${k} = ${i*k}`;
-                console.log(str);
-                document.write(str);
+                // JS 補0 寫出乘法表
+                // 01*01 = 01  01*02 = 02
+                // `${變數}`.padStart(2, '0')
+                // 表示總共2位數 從左邊開始算起空白處補0 例如 01 02                 
+                let istr = `${i}`.padStart(2, '0'); //被乘數
+                let kstr = `${k}`.padStart(2, '0'); //乘數   
+                let sum = `${istr} * ${kstr}`;  // 被乘數 x 乘數
+                let zero = `${istr * kstr}`.padStart(2, '0'); // 積
+                let TEXT = sum + '=' + zero; //字串相加
+                document.write(TEXT);
+                document.write('&nbsp&nbsp&nbsp&nbsp'); //補空白
             }
             document.write('<br>');
-        }  
+        }
 
-        // JS 補0 寫出乘法表
-        // 01*01 = 01  01*02 = 02
 
     </script>
 </body>
