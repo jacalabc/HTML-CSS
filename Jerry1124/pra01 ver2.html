@@ -1,40 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h3>九九乘法表</h3>
-    <input type="text" id ="num1">
-    <input type="text" id ="num2">
-    <button type="button" id="myBtn">myBtn</button>
+    <input type="text" id="num1" value="8">
+    <input type="text" id="num2" value="7">
+    <button type="button" id="myBtn" onclick="myBtnFun();">myBtn</button>
+    <br><br>
+    <div id="myDiv"></div>
+
     <script>
         // 9 9 乘法表
         // 練習
         // 輸入兩個數字  num1 x num2 乘法表
         // 使用 input 
+
+        //function
+        //document.write function 後存在的html　會被清空;
+        function myBtnFun() {
+            let getNum1 = num1Input.value;
+            let getNum2 = num2Input.value;
+            console.log('getNum1', getNum1);
+            console.log('getNum2', getNum2);
+
+            let result = "";
+
+            // 1.function onclick
+            // 2.document write => error 清空html
+            // 3.document write => result string 組合
+            // 4.div innerHTML 放入result string
+
+            for (let i = 1; i <= getNum1; i++) {
+                for (let k = 1; k <= getNum2; k++) {
+                    let istr = `${i}`.padStart(2, '0');
+                    let kstr = `${k}`.padStart(2, '0');
+                    let sum = `${istr} X ${kstr}`;
+                    let zero = `${istr * kstr}`.padStart(2, '0');
+                    let TEXT = sum + '=' + zero;
+                    result = `${result}` + `${TEXT} &nbsp;&nbsp;&nbsp;&nbsp;`;
+                }
+                result = result + "<br>";
+            }
+            console.log(result);
+            myDiv.innerHTML = result;
+        }
+
+        //綁定
         const num1Input = document.getElementById('num1');
         const num2Input = document.getElementById('num2');
         const myBtn = document.getElementById('myBtn');
+        const myDiv = document.getElementById('myDiv');
 
-        let num1 = num1Input.value;
-        let num2 = num2Input.value;
+        let Num1 = num1Input.value;
+        let Num2 = num2Input.value;
 
-        for (let i = 1; i <= Num1; i++) {
-            for (let k = 1; k <= Num2; k++) {               
-                let istr = `${i}`.padStart(2, '0'); 
-                let kstr = `${k}`.padStart(2, '0');   
-                let sum = `${istr} X ${kstr}`;  
-                let zero = `${istr * kstr}`.padStart(2, '0');
-                let TEXT = sum + '=' + zero;
-                document.write(TEXT);
-                document.write('&nbsp&nbsp&nbsp&nbsp');
-            }
-            document.write('<br>');
-        }
     </script>
 </body>
+
 </html>
