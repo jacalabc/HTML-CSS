@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // array sort reverse string
+        // 
+        let myArr1 = ['1', '2', '3', '4'];
+        let initMyArr1 = myArr1;
+        console.log('init myArr', initMyArr1);
+        myArr1.sort();
+        myArr1.reverse();
+        console.log('after myArr1', myArr1);
+        // 箭頭函式
+        let myArr = ['Amy', 'Bob', 'Cat', 'Dog', 'Egg'];
+        myArr.forEach((value, index) => {
+            console.log(value);
+            console.log(index);
+        });
+
+        // myArr[i] 與 myArr['i'] 的差別?
+        let i = 2;
+        let name = 'name';
+        name = 'qwer';
+        console.log(myArr[i]);
+        // 以上那行相當於 console.log(myArr[2]);
+
+        console.log(myArr[name]); // myArr['qwer']
+        console.log(myArr['name']); // myArr['name']
+
+
+        // 箭頭函式
+        // console.log('arrow function');
+        // myArr.forEach(function(value,index){
+            // console.log(value);
+            // console.log(index);
+        // });
+    </script>
+</body>
+
+</html>
