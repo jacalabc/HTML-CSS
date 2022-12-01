@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // array
+        // 關鍵 很多個 變數 打包在一起
+        // php indexArr vs js arr
+        let myArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log('myArr', myArr);
+        console.log('myArr[0]', myArr[0]);
+        console.log('myArr[1]', myArr[1]);
+        console.log('myArr[2]', myArr[2]);
+
+        // for
+        // for (let i = 0; i < myArr.length; i++) {
+        // console.log('key', i);
+        // console.log('value', myArr[i]);
+        // }
+
+        // 練習
+        // sum
+        // myArr value 加總
+        // 以for迴圈呈現
+        let sum = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            console.log('key', i);
+            console.log('value', myArr[i]);
+            sum += myArr[i];
+        }
+        console.log('this is sum', sum);
+
+        // 偶數
+        // 練習
+        // sum
+        // myArr value 加總
+        // 以for迴圈呈現
+        let sum1 = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] % 2 == 0) {
+                sum1 += myArr[i];
+            }
+        }
+        console.log('這是偶數相加總合', sum1);
+
+        // 奇數
+        // 練習
+        // sum
+        // myArr value 加總
+        // 以for迴圈呈現
+        let sum2 = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] % 2 == 1) {
+                sum2 += myArr[i];
+            }
+        }
+        console.log('這是奇數相加總合', sum2);
+
+        // 在一個for迴圈裡面取得 總和 偶數總和 奇數總和 這三個數值
+        let sum3 = 0;
+        let sumOdd = 0;
+        let sumEven = 0;
+        for (let i = 0; i < myArr.length; i++) {
+            if (myArr[i] % 2 == 1) {
+                console.log(`奇數 myArr[${i}]`, myArr[i]);
+                sumOdd += myArr[i];
+            } else {
+                console.log(`偶數 myArr[${i}]`, myArr[i]);
+                sumEven += myArr[i];
+            }
+        }
+        console.log('sum', sum);
+        console.log('sumOdd', sumOdd);
+        console.log('sumEven', sumEven);
+    </script>
+</body>
+
+</html>
