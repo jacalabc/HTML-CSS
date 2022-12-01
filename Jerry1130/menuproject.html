@@ -74,13 +74,13 @@
                 </tr>
                 <tr>
                     <td>總價</td>
-                    <td colspan="2">
-                        <p id="resultS">
+                    <td colspan="2" class="align-middle">
+                        <span id="resultS">
                         
-                        </p>
+                        </span>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-success" onchange="sum()">超過500打8折</button>
+                        <button type="button" class="btn btn-success" onclick="sum()">超過500打8折</button>
                     </td>
                 </tr>
             </tbody>
@@ -132,10 +132,6 @@
         const item3Total = document.getElementById('item3Total');
 
         const resultS = document.getElementById('resultS');
-
-        console.log('item1Price', item1Price);
-        console.log('item1Count', item1Count);
-        console.log('item1Total', item1Total);
 
         // 一開始先執行一次
         changFun();
