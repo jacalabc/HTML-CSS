@@ -38,22 +38,29 @@
         // function種類
 
         // 一般
-        // 宣告
+        // 宣告function
+        // function function名稱(){} 
+        // 函式名稱後面要有()
+        // 並且在{}內輸入要處理的程序
         function myFun() {
             document.write('myFun ok');
             console.log('myFun ok');
         }
 
         // 有變數
+        // 函式()裡面有參數
+        // 在{}內宣告一個變數str，並且代入()內的參數name
         function helloFun(name) {
             let str = `Hello ${name}`;
             console.log('this is str', str);
         }
 
         // 呼叫 function
-        // myFun();
-        // let name = '王曉明';
-        // helloFun(name);
+        // 指定name為 王曉明 並且代入function helloFun(name){}
+        // 執行結果為 this is str Hello 王曉明
+        myFun();
+        let name = '王曉明';
+        helloFun(name);
 
         // input 兩個變數 num1 num2
         // button
@@ -62,17 +69,22 @@
         // function
 
         // 有回傳值
+        // 函式裡面有2個回傳值num1，num2
         function sum(num1,num2){
+            // 將num1，num2的值回傳給函式sum(){}
             return num1+num2;
         }
 
         function calcFun() {
             let num1value = Number(num1Input.value);
             let num2value = Number(num2Input.value);
+            // 宣告2個常數num1Input，num2Input取他們的值並透過Number將字串轉成數字存入
+            // num1value，num2value兩個變數然後代入getArea()函式
+            // 先告一個area變數並將getArea(num1value, num2value)的值指定給他
             let area = getArea(num1value, num2value); //回傳值 存入變數
             getArea(num1value, num2value);
             getPerimeter(num1value, num2value);
-
+            
             if(area >=500){
                 console.log('面積500以上');
             }else{
