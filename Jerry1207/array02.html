@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 公司發年終
+        // employee =[3,4,5,6,7];
+        // EX1:發兩個月總共要發多少?
+        // EX2:每個人都發兩個月，但領五萬的是傑出員工 發四個月 總共要發多少?
+
+        employee = [3, 4, 5, 6, 7];
+        // map() 以 foreach方法寫出來
+
+        let bonusArr = [];
+        employee.forEach((value, key) => {
+            let newValue = value * 2; //兩倍獎金
+            bonusArr.push(newValue);
+        });
+        console.log('this is bonusArr', bonusArr);
+
+        // reduce() 加總 以 foreach方法寫出來
+        let sumValue = 0;
+        bonusArr.forEach((value, key) => {
+            sumValue += value;
+        });
+        console.log('this is sumValue', sumValue);
+
+        // filter() 篩選 以 foreach方法寫出來
+        let WTF = [];
+        bonusArr.forEach((value,key)=>{
+            if(value > 10){
+                WTF.push(value);
+            }
+        });
+        console.log('this is WTF', WTF);
+    </script>
+</body>
+
+</html>
