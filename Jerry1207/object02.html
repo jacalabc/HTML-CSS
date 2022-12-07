@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            // 變數
+            'name': '小名',
+            'age': 18,
+            'address': '中山路',
+            // 方法
+            // 只有 obj function this 指向上一層obj
+            'helloFun': function () {
+                // console.log('HELLO :D');
+                console.log('this.name',this.name);
+                let str = `Hello 我是 ${this.name} 今年 ${this.age} 歲`;
+                console.log('this is str',str);
+            },
+
+            // arrow 箭頭函式的 this 指向外部的 window
+            'sleepFun': () => {
+                console.log('go to sleep');
+            }
+        }
+
+        console.log('this is obj', obj);
+
+        obj.name;
+        console.log('this is obj.name', obj.name);
+        obj.age;
+        console.log('this is obj.age', obj.age);
+        obj.helloFun()
+
+        // property
+        // address : 'xxxx路'
+        obj.address;
+        console.log('this is obj.address', obj.address);
+        // method
+        // 'sleepFun'
+        // log sleep...
+        obj.sleepFun();
+
+    </script>
+</body>
+
+</html>
