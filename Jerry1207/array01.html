@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button type="button" id="myBtn">this is button</button>
+    <button type="button" id="myBtn2">this is button2</button>
+    <button type="button" id="myBtn3">this is button3</button>
+    <script>
+        // 方法一 函式寫在外面
+        myBtn.addEventListener("click", myFunction);        
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World :D";
+        }
+        // 方法二 函式寫在裡面(不用命名)
+        myBtn2.addEventListener("click", function () {
+            document.getElementById("demo").innerHTML = "Hello World XD";
+        });
+        // 方法三 箭頭函式
+        myBtn3.addEventListener("click", () => {
+            document.getElementById("demo").innerHTML = "Hello World YEAH";
+        });
+        // 方法四 函式指定給變數
+        let WTF = function WTFFunction(){
+            console.log('WTFFunction');
+        };
+        console.log('WTF123',WTF)
+        WTF();
+        // 方法五 函式指定給變數 箭頭函式
+        let WTF2 = () => {
+            console.log('WTFFunction222');
+        };
+        console.log('WTF456',WTF2)
+        WTF2();
+    </script>
+</body>
+
+</html>
