@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 練習
+        // 5個手機
+        // name : price
+        let phoneObject = {
+            'Pixel7_Pro_256G': 27800,
+            'Pixel7_Pro_128G': 24990,
+            'Pixel7_256G': 20500,
+            'Pixel7_128G': 17500,
+            'Pixel6_Pro_128G': 18990,
+        }
+        console.log('this is phone data', phoneObject);
+
+        // 多維object
+        let multiphoneObj = [
+            {
+                'name' : 'Pixel7_Pro_256G',
+                'price' : 27800,
+                'location' : ['北','中','南'],
+                'testObj' : {'s1' : 'amy'}
+            },
+            {
+                'name' : 'Pixel7_Pro_128G',
+                'price' : 24900,
+                'location' : ['北','中','南'],
+                'testObj' : {'s1' : 'amy','s2':'bob'}
+            },
+            {
+                'name' : 'Pixel7_256G',
+                'price' : 20500,
+                'location' : ['北','中','南']
+            },
+        ];
+        console.log('this is multiphoneObj', multiphoneObj);
+        console.log('multiphoneObj.name', multiphoneObj[0].name);
+        console.log('multiphoneObj.location', multiphoneObj[0].location);
+        console.log('multiphoneObj.testObj', multiphoneObj[0].testObj);
+        console.log('multiphoneObj.testObj', multiphoneObj[1].testObj);
+        console.log('multiphoneObj.location', multiphoneObj[0].location);
+        multiphoneObj[0].location.forEach(element => {
+            console.log(element);
+        });
+
+       
+    </script>
+</body>
+
+</html>
