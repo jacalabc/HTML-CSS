@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            background-color: burlywood;
+            width: 800px;
+            height: 30px;
+        }
+
+        .box2 {
+            background-color: lightskyblue;
+            width: 800px;
+            height: 200px;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quidem nemo natus dolor maiores similique ab
+        est aut provident dignissimos deleniti, consequatur itaque, voluptatum voluptatem reprehenderit maxime explicabo
+        non quam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quidem nemo natus dolor maiores similique ab
+        est aut provident dignissimos deleniti, consequatur itaque, voluptatum voluptatem reprehenderit maxime explicabo
+        non quam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quidem nemo natus dolor maiores similique ab
+        est aut provident dignissimos deleniti, consequatur itaque, voluptatum voluptatem reprehenderit maxime explicabo
+        non quam!
+    </div>
+
+    <button type="button" id="slideUpBtn">slide Up</button>
+    <button type="button" id="slideDownBtn">slide Down</button>
+    <button type="button" id="slideToggleBtn">slide Toggle</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(function () {
+            $('.box1').click(function () {
+                $('.box2').slideToggle();
+            })
+            // jquery method chain
+            $('#slideUpBtn').click(function () {
+                $('.box2').css('color','red').slideUp(2000).slideDown(2000).slideUp(2000).slideDown(2000);
+            });
+            $('#slideDownBtn').click(function () {
+                $('.box2').slideDown(2000, function () {
+                    alert('好冷');
+                });
+            });
+            $('#slideToggleBtn').click(function () {
+                $('.box2').slideToggle();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
