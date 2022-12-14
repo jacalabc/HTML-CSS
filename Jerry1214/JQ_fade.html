@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit, amet.</p>
+    <p>Lorem ipsum dolor sit, amet.</p>
+    <p>Lorem ipsum dolor sit, amet.</p>
+    <p>Lorem ipsum dolor sit, amet.</p>
+    <p>Lorem ipsum dolor sit, amet.</p>
+    <button type="button" id="fadeinBtn">Fade in</button>
+    <button type="button" id="fadeoutBtn">Fade out</button>
+    <button type="button" id="fadetoggleBtn">Fade toggle</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    
+    <script>
+        $(function(){
+            // 綁定
+            const allP = $('p');
+
+            // 淡入 淡出
+            $('#fadeinBtn').click(function(){
+                // $('p').fadeIn();
+                allP.fadeIn();
+            })
+            // event on('event',callback);
+            $('#fadeoutBtn').on('click',function(){
+                // $('p').fadeOut();
+                allP.fadeOut();
+            })
+            $('#fadetoggleBtn').click(function(){
+                // $('p').toggle();
+                allP.toggle();
+            })
+
+        });
+    </script>
+
+</body>
+</html>
