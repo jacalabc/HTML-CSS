@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+            font-size: 48px;
+            text-align: center;
+        }
+
+        .green {
+            color: green;
+            font-size: 30px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .black{
+        color: black;
+        font-size: 16px;
+        text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="magicBtn">MAGIC</button>
+    <H3>JS</H3>
+    <p class="green" id="pJS">Hello JS</p>
+    <hr>
+    <H3>JQ</H3>
+    <p class="green" id="pJQ">Hello JQ</p>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(function () {
+            // js
+            // property 屬性
+            // xxxx.innerText = 'hello'
+            // innerText
+            // textContent
+            // innerHtml
+            // value
+
+            // jqery
+            // text('hello')
+            // method 方法 函示 
+            // text()
+            // html()
+            // val()
+
+            // js
+            const pJS = document.getElementById('pJS');
+            // jq
+            const pJQ = $('#pJQ');
+
+            pJS.innerText = 'change JS :D';
+            pJQ.text('change JQ :D');
+
+            // 練習 同一個button按下去
+            // color red
+            // font-size 48px
+            // text-align:center
+            // 再按一次
+            // color black
+            // font-size 16px
+            // text-align:left
+
+            const magicBtn = $('#magicBtn');
+            let isGreen = true;
+            magicBtn.click(function () {
+                // $('p').css('color','red');
+                // $('p').css('font-size','48px');
+                // $('p').css('text-align','center');
+                // 按鈕按下去先移除green這個class再執行新增red這個class
+                // $('p').removeClass('green');
+                // $('p').addClass('red');
+                // $('p').addClass('bold');
+                // $('p').toggleClass('red');
+
+                // attribute
+                // $('p').attr('class', 'red bold');               
+                if(isGreen){
+                    $('p').attr('class', 'red');
+                    isGreen = false;
+                }else{
+                    $('p').attr('class', 'green');
+                    isGreen = true;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
