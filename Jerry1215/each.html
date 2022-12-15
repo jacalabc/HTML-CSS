@@ -30,6 +30,15 @@
                 console.log($(this));
                 console.log($(value));
             });
+            console.log('allP type2', allP);
+            allP.each(function (key, value) {
+                console.log(key);
+                console.log(value);
+                console.log(this);
+                console.log($(this));
+                console.log($(value));
+
+            });
             console.log('myArr');
             const myArr = ['amy', 'bob', 'cat'];
             $.each(myArr, function (key, value) {
