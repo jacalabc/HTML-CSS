@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>jquery each</h3>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <script>
+        // $ 代表 JQuery
+        $(function(){
+            // 綁定
+            const allP = $('p');
+            console.log('allP', allP);
+            $.each(allP,function(key,value){
+                console.log(key);
+                console.log(value);
+                console.log(this);
+                console.log($(this));
+                console.log($(value));
+            });
+            console.log('myArr');
+            const myArr = ['amy', 'bob', 'cat'];
+            $.each(myArr, function (key, value) {
+                console.log(key);
+                console.log(value);
+            });
+            console.log('myObj');
+            const myObj = {
+                's1': 'amy',
+                's2': 'bob',
+                's3': 'cat'
+            };
+            $.each(myObj, function (key, value) {
+                console.log(key);
+                console.log(value);
+            });
+        });
+    </script>
+</body>
+</html>
