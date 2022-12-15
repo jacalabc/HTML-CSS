@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22/12/15練習1</title>
+    <style>
+        .box1 {
+            width: 100%;
+            height: 50px;
+            background-color: burlywood;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;           
+        }
+        button{
+            margin: 10px;
+        }
+        .box2 {
+            width: 100%;
+            height: 50px;
+            background-color: lightskyblue;
+            display: none;
+            overflow: hidden;
+        }
+
+        p {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+        <h3>tabs</h3>
+    <div class="box1">
+        <button type="button" id="tab1">tab1</button>
+        <button type="button" id="tab2">tab2</button>
+        <button type="button" id="tab3">tab3</button>
+        <button type="button" id="tab4">tab4</button>
+    </div>
+    <div class="box2">
+        <p>today</p>
+        <p>is</p>
+        <p>cold</p>
+        <p>today is cold :D</p>
+    </div>
+    <script>
+        $(function () {
+            const tab1 = $('#tab1');
+            const tab2 = $('#tab2');
+            const tab3 = $('#tab3');
+            const tab4 = $('#tab4');
+            const box2 = $('.box2');
+            const allP = $('.box2>p');
+
+            tab1.click(function () {
+                box2.show();
+                allP.hide();
+                allP.eq(0).slideDown(1000);
+            });
+            tab2.click(function () {
+                box2.show();
+                allP.hide();
+                allP.eq(1).slideDown(1000);
+            });
+            tab3.click(function () {
+                box2.show();
+                allP.hide();
+                allP.eq(2).slideDown(1000);
+            });
+            tab4.click(function () {
+                box2.show();
+                allP.hide();
+                allP.eq(3).slideDown(1000);
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
