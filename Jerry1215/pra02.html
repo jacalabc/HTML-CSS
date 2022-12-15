@@ -1,36 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .red{
+        .red {
             color: red;
         }
-        .yellow{
+
+        .yellow {
             color: yellow;
         }
-        .green{
+
+        .green {
             color: green;
         }
     </style>
 </head>
+
 <body>
     <button type="button" id="magicBtn">MAGIC</button>
     <H3>JS</H3>
-    <p class="green" id="pJS">Hello JS</p>
+    <p id="pJS">Hello JS</p>
     <hr>
     <H3>JQ</H3>
-    <p class="green" id="pJQ">Hello JQ</p>
+    <p id="pJQ">Hello JQ</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
+        </script>
     <script>
         // 練習顏色切換 綠 黃 紅
-        let num = 0;
+        $(function () {
+            // js
+            const pJS = document.getElementById('pJS');
+            // jq
+            const pJQ = $('#pJQ');
+
+            pJS.innerText = 'change JS :D';
+            pJQ.text('change JQ :D');
+            const magicBtn = $('#magicBtn');
+
+            const colorArr = ['red', 'yellow', 'green'];
+            console.log('colorArr', colorArr);
+            console.log('colorArr[0]', colorArr[0]);
+            console.log('colorArr[1]', colorArr[1]);
+            console.log('colorArr[2]', colorArr[2]);
+
+
+            let num = 0;
+            // 指定 num = 0 進入 case 0
+            magicBtn.click(function () {
+                console.log('num', num);
+                console.log('num${colorArr[num]}', colorArr[num]);
+                switch (num) {
+                    // 點一下按鈕執行 case 0 ， num 變成 1 跳出迴圈
+                    case 0:
+                        $('p').attr('class', `${colorArr[0]}`);
+                        num = 1;
+                        break;
+                    // 此時 num = 1 進入 case 1
+                    // 點一下按鈕執行 case 1 ， num 變成 2 跳出迴圈
+                    case 1:
+                        $('p').attr('class', `${colorArr[1]}`);
+                        num = 2;
+                        break;
+                    // 此時 num = 2 進入 case 2
+                    // 點一下按鈕執行 case 2 ， num 變成 0 跳出迴圈            
+                    case 2:
+                        $('p').attr('class', `${colorArr[2]}`);
+                        num = 0;
+                        break;
+                        default:
+                            break;
+                }
+            });
+        });
     </script>
 </body>
+
 </html>
