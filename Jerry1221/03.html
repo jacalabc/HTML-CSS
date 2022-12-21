@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <title>Document</title>
+    <style>
+         div{
+            width: 80%;
+            height: 80%;
+            border: 1px burlywood solid;
+         }
+         ul{
+            width: 80%;
+            height: 80%;
+            border: 1px orange solid;
+         }
+         li{
+            width: 80%;
+            height: 80%;
+            border: 1px red solid;
+         }
+    </style>
+</head>
+<body>
+        <!-- div 校長 -->
+        <div>
+            <!-- ul 老師 1 -->
+            <ul>
+                <li>amy</li>
+                <li>bob</li>
+                <li>cat</li>
+            </ul>
+
+            <!-- ul 老師 2 -->
+            <ul>
+                <li>egg</li>
+                <li>fox</li>
+                <li>duck</li>
+            </ul>
+        </div>
+
+        <script>
+            $(function(){
+
+                // 校長
+                // $('div').css('color','orange');
+                // console.log("$('div')",$('div'));
+                
+                // 老師
+                // $('div>ul').eq(0).css('color','pink');
+                // $('div>ul').eq(1).css('color','blue');
+                // console.log("$('div>ul')",$('div>ul'));
+                // console.log("$('div>ul').eq(0)",$('div>ul').eq(0));
+                // console.log("$('div>ul').eq(1)",$('div>ul').eq(1));
+
+                // 學生
+                // $('div>ul>li').eq(0).css('color','red');
+                // $('div>ul>li').eq(1).css('color','green');
+                // $('div>ul>li').eq(2).css('color','blue');
+
+                // ex 只知道校長
+                // 要找老師
+                // const head = $('div');
+                // find('條件')找下一層
+                // const teacher = head.find('ul');
+                // children()找下一層
+                // children().children()找下二層
+                // const teacher = head.children();
+                // 要找學生
+                // const student = head.find('li');
+                // teacher.css('background-color','lightpink');
+                // teacher.eq(0).css('background-color','lightpink');
+                // teacher.eq(1).css('background-color','#1aff8c');
+                // student.css('background-color','#1aff8c');
+
+                // 知道學生 找上幾代
+                // jQuery Traversing - Ancestors
+                // 祖先選擇器
+                const student = $('li');
+                const studentParent = $('li').first().parent();
+                const studentParentParent = $('li').first().parent().parent();
+                console.log('student',student);
+                console.log('studentParent',studentParent);
+                console.log('studentParentParent',studentParentParent);
+
+            });
+        </script>
+</body>
+</html>
