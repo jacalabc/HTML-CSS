@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <title>Document</title>
+    <style>
+        div {
+            width: 80%;
+            height: 80%;
+            border: 1px burlywood solid;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        ul {
+            width: 80%;
+            height: 80%;
+            border: 1px orange solid;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        li {
+            width: 80%;
+            height: 80%;
+            border: 1px rgb(139, 119, 86) solid;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        div
+        <ul>
+            ul
+            <li>li amy</li>
+            <li>li bob</li>
+            <li>li cat</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li>li fox</li>
+            <li>li duck</li>
+        </ul>
+    </div>
+    <script>
+        $(function(){
+            // traversing
+            // 後代選擇器
+
+            // children()
+            // find()
+
+            const div = $('div');
+            // const divChidren = div.children();
+            // console.log('divChidren',divChidren);
+            // divChidren.css('border-color','#ccc');
+
+            const divFind = div.find('ul');
+            console.log('divFind',divFind);
+            divFind.css('border-color','blue');
+        });
+
+    </script>
+</body>
+</html>
