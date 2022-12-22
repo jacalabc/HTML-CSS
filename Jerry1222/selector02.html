@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <title>Document</title>
+    <style>
+        div {
+            width: 80%;
+            height: 80%;
+            border: 1px burlywood solid;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        ul {
+            width: 80%;
+            height: 80%;
+            border: 1px orange solid;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        li {
+            width: 80%;
+            height: 80%;
+            border: 1px rgb(139, 119, 86) solid;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        div
+        <ul>
+            ul
+            <li>li amy</li>
+            <li>li bob</li>
+            <li>li cat</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li>li fox</li>
+            <li>li duck</li>
+        </ul>
+    </div>
+    <script>
+        $(function(){
+// traversing
+            // 祖先選擇器
+
+            // parent 選一個
+            // parents 選全部
+            // parentUntil
+
+            const li = $('li');
+            console.log('li',li);
+            li.click(function(){
+                li.css('background-color','');
+                $(this).css('background-color','blue');
+            })
+
+            // parent 選一個
+            const liParent = li.parent();
+
+            // parents 選全部
+            const  liParents = li.parents();
+
+            // parentUntil 碰到xxx之前的全部
+            const liParentsUntil = li.parentsUntil('body');
+
+            console.log('liParent',liParent);
+            console.log('liParents',liParents);
+            console.log('liParentsUntil',liParentsUntil);
+        });
+
+    </script>
+</body>
+</html>
