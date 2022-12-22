@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <title>Document</title>
+    <style>
+        div {
+            width: 80%;
+            height: 80%;
+            border: 1px burlywood solid;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        ul {
+            width: 80%;
+            height: 80%;
+            border: 1px orange solid;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        li {
+            width: 80%;
+            height: 80%;
+            border: 1px rgb(139, 119, 86) solid;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        div
+        <ul>
+            ul
+            <li>li amy</li>
+            <li class="test">li bob</li>
+            <li>li cat</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li class="test">li fox</li>
+            <li>li duck</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li class="test">li fox</li>
+            <li>li duck</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li class="test">li fox</li>
+            <li>li duck</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li class="test">li fox</li>
+            <li>li duck</li>
+        </ul>
+        <ul>
+            ul
+            <li>li egg</li>
+            <li class="test">li fox</li>
+            <li>li duck</li>
+        </ul>
+    </div>
+    <script>
+        $(function () {
+            // traversing
+            // filter
+
+            const ul = $('ul');
+            ul.click(function(){
+                console.log('this',this);
+                // first & last
+                // $(this).find('li').first().css('border-color','#33ccff');
+                // $(this).find('li').last().css('border-color','#ff00ff');
+
+                // eq
+                // $(this).find('li').eq(0).css('border-color','#33ccff');
+                // $(this).find('li').eq(1).css('border-color','#ff00ff');
+                // $(this).find('li').eq(2).css('border-color','#ffff99');
+
+                // filter
+                $(this).find('li').filter('.test').css('color','#ffff99');
+                // $(this).find('.test').css('color','#ffff99');
+
+                let getULIndex = ul.index(this);
+                console.log('getULIndex',getULIndex);
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
