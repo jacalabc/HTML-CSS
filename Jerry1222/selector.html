@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <title>Document</title>
+    <style>
+        div {
+            width: 80%;
+            height: 80%;
+            border: 1px burlywood solid;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        ul {
+            width: 80%;
+            height: 80%;
+            border: 1px orange solid;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        li {
+            width: 80%;
+            height: 80%;
+            border: 1px rgb(255, 162, 0) solid;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- div 校長 -->
+    <div>
+        div
+        <!-- ul 老師 1 -->
+        <ul>
+            ul
+            <li>li amy</li>
+            <li>li bob</li>
+            <li>li cat</li>
+        </ul>
+
+        <!-- ul 老師 2 -->
+        <ul>
+            ul
+            <li>li egg</li>
+            <li>li fox</li>
+            <li>li duck</li>
+        </ul>
+    </div>
+
+    <script>
+        $(function () {
+
+            // 校長
+            // $('div').css('color','orange');
+            // console.log("$('div')",$('div'));
+
+            // 老師
+            // $('div>ul').eq(0).css('color','pink');
+            // $('div>ul').eq(1).css('color','blue');
+            // console.log("$('div>ul')",$('div>ul'));
+            // console.log("$('div>ul').eq(0)",$('div>ul').eq(0));
+            // console.log("$('div>ul').eq(1)",$('div>ul').eq(1));
+
+            // 學生
+            // $('div>ul>li').eq(0).css('color','red');
+            // $('div>ul>li').eq(1).css('color','green');
+            // $('div>ul>li').eq(2).css('color','blue');
+
+            // ex 只知道校長
+            // 要找老師
+            // const head = $('div');
+            // find('條件')找下一層
+            // const teacher = head.find('ul');
+            // children()找下一層
+            // children().children()找下二層
+            // const teacher = head.children();
+            // 要找學生
+            // const student = head.find('li');
+            // teacher.css('background-color','lightpink');
+            // teacher.eq(0).css('background-color','lightpink');
+            // teacher.eq(1).css('background-color','#1aff8c');
+            // student.css('background-color','#1aff8c');
+
+            // 知道學生 找上幾代
+            // jQuery Traversing - Ancestors
+            // 祖先選擇器
+            const student = $('li');
+            const studentParent = $('li').first().parent();
+            const studentParentParent = $('li').first().parent().parent();
+            console.log('student', student);
+            console.log('studentParent', studentParent);
+            console.log('studentParentParent', studentParentParent);
+
+            // 練習一
+            // li click 變藍色
+            // student.click(function(){
+            //     console.log('this',this);
+            //     console.log('$(this)',$(this));
+            //     student.css('background-color','');
+            //     $(this).css('background-color','cornflowerblue');
+            // });
+
+            // 練習二
+            // li click 變藍色
+            // li parent 變粉紅色
+            // student.click(function(){
+            //     console.log('this',this);
+            //     console.log('$(this)',$(this));
+            //     console.log('$(this).parent()',$(this).parent());
+            //     student.css('background-color','');
+            //     $(this).css('background-color','cornflowerblue');
+            //     student.parent().css('background-color','');
+            //     $(this).parent().css('background-color','pink');
+            // });
+
+            // 練習三
+            // li click 變藍色
+            // li parent 變粉紅色
+            // li parent parent 變綠色
+            // student.click(function(){
+            //     console.log('this',this);
+            //     console.log('$(this)',$(this));
+            //     console.log('$(this).parent()',$(this).parent());
+            //     console.log('$(this).parent().parent()',$(this).parent().parent());
+            //     student.css('background-color','');
+            //     student.parent().css('background-color','white');
+            //     $(this).css('background-color','cornflowerblue');                
+            //     $(this).parent().css('background-color','pink');
+            //     $(this).parent().parent().css('background-color','#66ff66');
+            // });
+
+            // 練習四
+            // li click 變藍色
+            // li parent 變粉紅色
+            // li parent parent 變綠色
+            // 把另外一個ul 變成紅色
+            student.click(function () {
+                console.log('this', this);
+                console.log('$(this)', $(this));
+                console.log('$(this).parent()', $(this).parent());
+                console.log('$(this).parent().parent()', $(this).parent().parent());
+                console.log('$(this).parent().parent().find("ul")', $(this).parent().parent().find('ul'));
+                let getIndex = $(this).parent().index();
+                student.css('background-color', '');
+                student.parent().css('background-color', 'white');
+                // $(this).parent().parent().find('ul').not(`:eq(${getIndex})`).find('li').css('background-color','white');
+                $(this).parent().parent().find('ul').find('li').css('background-color','white');
+                $(this).parent().parent().find('ul').not(`:eq(${getIndex})`).css('background-color','red');
+                $(this).css('background-color', 'cornflowerblue');
+                $(this).parent().css('background-color', 'pink');
+                
+               
+                $(this).parent().parent().css('background-color', '#66ff66');
+            });
+        });
+
+    </script>
+</body>
+
+</html>
