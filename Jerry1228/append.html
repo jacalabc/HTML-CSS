@@ -12,8 +12,11 @@
             div{
                 color: burlywood;
             }
-            p{
+            .myP{
                 color: rgb(53, 215, 115);
+            }
+            p{
+                color:blue;
             }
         </style>
     <title>Document</title>
@@ -22,7 +25,10 @@
     <h3>append</h3>
     <div id ="myDiv">
         hello div
-        <p>
+        <p class="myP">
+            Good Morning p tag
+        </p>
+        <p class="myP">
             Good Morning p tag
         </p>
     </div>
@@ -34,10 +40,16 @@
         $(function(){
             const appendButton = $('#appendButton');
             const myDiv = $('#myDiv');
+            const myP = $('.myP');
             console.log('THIS IS appendButton',appendButton);
             appendButton.click(function(){
                 console.log('appendButton OKOK');
-                $('#myDiv').append('<p>2023 is coming</p>');
+                myDiv.append('<p>2023 is coming</p>');
+                // myDiv.prepend('<p>2023 is coming</p>');
+                let WTF = $(this).parent().parent().find('.myP');
+                console.log('$(this)',$(this))
+                // WTF.after('<p>2023 is coming</p>');
+                // WTF.before('<p>2023 is coming</p>');
             })
         })
 
