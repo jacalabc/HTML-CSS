@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        <style>
+            ul{
+                color: burlywood;
+            }
+            li{
+                color: rgb(53, 215, 115);
+            }
+        </style>
+    <title>Document</title>
+</head>
+<body>
+    <h3>append practice01</h3>
+    <ul id ="myUl">
+        hello ul       
+    </ul>
+    <div>
+        <button type="button" id="appendButton">appendButton</button>
+        <button type="button" id="prependButton">prependButton</button>
+    </div>
+    <hr>
+    <script>
+         // 練習一
+         // ul 裡面 增加 li
+        $(function(){
+            const myUl = $('#myUl');
+            const appendButton = $('#appendButton');
+            const prependButton = $('#prependButton');
+            console.log('this is myUl',myUl)
+           
+            console.log('THIS IS appendButton',appendButton);
+            let i = 0;
+                // append  新增在指定元素 myUl 最後面
+            appendButton.click(function (){
+                console.log('appendButton OKOK');
+                i++;               
+                myUl.append(`<li>Oh HI :D append ${i}</li>`);
+            });
+
+                // prepend  新增在指定元素 myUl 最前面
+                let k = 0;
+                prependButton.click(function (){
+                console.log('prependButton OKOK');
+                k++;
+                myUl.prepend(`<li>Oh HI :D prepend ${k}</li>`);
+            });
+        })
+
+       
+    </script>
+</body>
+</html>
