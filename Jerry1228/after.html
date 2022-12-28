@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        <style>
+            p{
+                color: burlywood;
+            }
+        </style>
+    <title>Document</title>
+</head>
+<body>
+    <h3>After</h3>
+    <div id="myDiv">
+        hello div       
+    </div>
+    <div id="myDivSort">
+        hello div sort
+    </div>
+    <div class="Btn">
+        <button type="button" id="afterBtn">After</button>
+        <button type="button" id="afterBtnSort">AfterSort</button>
+    </div>
+    <hr>
+    <script>
+
+        $(function(){
+            const myDiv = $('#myDiv');
+            const myDivSort = $('#myDivSort');
+            const afterBtn = $('#afterBtn');
+            const afterBtnSort = $('#afterBtnSort');
+           let i =0;
+           afterBtn.click(function(){
+            console.log('afterBtn OKOK')
+            i++
+            // after 5 4 3 2 1
+            myDiv.after(`<p>launch time :D ${i}</p>`);          
+           });
+
+           let k = 0;
+           afterBtnSort.click(function(){
+            console.log('afterBtnSort OKOK');
+            k++;
+             // after 照順序 1 2 3 4 5
+             let allLastDiv = $('div').last();
+             allLastDiv.after(`<div><p>launch time :D ${k}</p></div>`); 
+           })
+
+        })
+
+       
+    </script>
+</body>
+</html>
