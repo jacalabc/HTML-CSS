@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        <style>
+            p{
+                color: burlywood;
+            }
+        </style>
+    <title>Document</title>
+</head>
+<body>
+    <h3>appendTo prependTo</h3>
+    <ul>
+        hello ul       
+    </ul>
+    <div>
+        <button type="button" id="appendToBtn">appendTo</button>
+        <button type="button" id="prependToBtn">prependTo</button>
+    </div>
+    <hr>
+    <script>
+
+        $(function(){
+            const appendToBtn = $('#appendToBtn');
+            const prependToBtn = $('#prependToBtn');
+            // 新增在指定元素 ul 最後面 但是元素放前面
+            appendToBtn.click(function(){
+                console.log('appendToBtn OKOK');
+                $("<p>APPENDTO</p>").appendTo("ul");
+            })
+            // 新增在指定元素 ul 最前面 但是元素放前面
+            prependToBtn.click(function(){
+                console.log('prependToBtn OKOK');
+                $("<p>PREPENDTO</p>").prependTo("ul");
+
+            })
+
+        })
+
+       
+    </script>
+</body>
+</html>
