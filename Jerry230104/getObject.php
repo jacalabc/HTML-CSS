@@ -4,6 +4,6 @@ function dd($data){
     print_r($data);
     echo "</pre>";
 }
-$data=$_POST;
+$data=$_GET;
 echo json_encode($data);
 ?>

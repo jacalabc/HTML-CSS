@@ -5,7 +5,7 @@ function dd ($data){
     echo "</pre>";
 }
 //  $data=$_GET;
-$data=$_POST;
+$data=$_GET;
 // dd($data);
 echo json_encode($data);
 ?>

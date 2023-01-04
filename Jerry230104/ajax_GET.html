@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        div {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+             div {
             margin: 0 auto;
             margin-top: 100px;
             border: 1px solid #ccc;
@@ -16,9 +18,8 @@
             padding: 10px;
             text-align: center;
         }
-    </style>
+        </style>
 </head>
-
 <body>
     <div>
         <form action="./sumData.php" method="get" id="myForm">
@@ -44,56 +45,38 @@
 
         </form>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
-        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $(function () {
+        $(function(){
             const myForm = $('#myForm');
             const myP = $('#myP');
-            // 
-            myForm.submit(function (event) {
+            myForm.submit(function(){
                 console.log(event);
                 //preventDefault() //不要讓我的submit 送出
                 event.preventDefault();
+                console.log('this',this);
                 // serialize() 序列化 num1=22&num2=222&option=2222
                 // serializeArray() 序列化 Array  [{…}, {…}, {…}]
-                console.log('this', this);
-                // var values = $(this).serialize();
-                var values = $(this).serializeArray();
-                console.log('values', values);
+                var valuew = $(this).serializeArray();
+                console.log('values',values);
                 let myData = {
                     's1': 'amy',
                     's2': 'bob',
                     's3': 'cat',
                     'data': values
                 }
-
-                // ajax start
-                $.ajax({
-                    url: "./getObject.php",
-                    type: "get",
-                    data: myData,
-                    dataType: 'json',
-                    success: function (res) {
+                $.get("./getObject.php",myData,
+                       function(data,textStatus,jqXHR){
                         console.log('res', res);
-                        // myP.text(res.result);
+                       },
+                       "json");
 
-                        // console.log('res.mobile',res.mobile);
-                        // You will get response from your PHP page (what you echo or print)
-                    },
-                    // error: function (jqXHR, textStatus, errorThrown) {
-                    //     console.log('jqXHR', jqXHR);
-                    //     console.log('textStatus', textStatus);
-                    //     console.log('errorThrown', errorThrown);
-                    // }
-                });
-                // ajax end
+                // $.getJSON("./getObject.php", myData,
+                //     function (res, textStatus, jqXHR) {
+                //         console.log('res', res);
+                //     }
+                // );
             });
         });
     </script>
-
 </body>
-
 </html>

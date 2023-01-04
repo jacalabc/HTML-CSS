@@ -21,7 +21,7 @@
 
 <body>
     <div>
-        <form action="./sumData.php" method="post" id="myForm">
+        <form action="./sumData.php" method="get" id="myForm">
             <p>
                 <label for="num1">num1 ?</label>
                 <input type="text" name="num1" id="num1">
@@ -71,7 +71,7 @@
                 // ajax start
                 $.ajax({
                     url: "./sumData.php",
-                    type: "post",
+                    type: "get",
                     data: values,
                     dataType: 'json',
                     success: function (res) {

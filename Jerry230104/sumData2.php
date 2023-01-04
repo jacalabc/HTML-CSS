@@ -5,7 +5,7 @@ function dd($data)
     print_r($data);
     echo "</pre>";
 }
-$data = $_POST;
+$data = $_GET;
 
 $num1 = $data['num1'];
 $num2 = $data['num2'];

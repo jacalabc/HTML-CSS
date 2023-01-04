@@ -21,7 +21,7 @@
 
 <body>
     <div>
-        <form action="./getData01.php" method="post" id="myForm">
+        <form action="./getData01.php" method="get" id="myForm">
             <p>
                 <label for="name">姓名 ?</label>
                 <input type="text" name="name" id="name">
@@ -56,7 +56,7 @@
                 // ajax start
                 $.ajax({
                     url: "./getData01.php",
-                    type: "post",
+                    type: "get",
                     data: values,
                     dataType: 'json',
                     success: function (res) {
