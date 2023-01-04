@@ -56,7 +56,7 @@
                 console.log('this',this);
                 // serialize() 序列化 num1=22&num2=222&option=2222
                 // serializeArray() 序列化 Array  [{…}, {…}, {…}]
-                var valuew = $(this).serializeArray();
+                var values = $(this).serializeArray();
                 console.log('values',values);
                 let myData = {
                     's1': 'amy',
@@ -66,13 +66,13 @@
                 }
                 $.get("./getObject.php",myData,
                        function(data,textStatus,jqXHR){
-                        console.log('res', res);
+                        console.log('data', data);
                        },
                        "json");
 
                 // $.getJSON("./getObject.php", myData,
-                //     function (res, textStatus, jqXHR) {
-                //         console.log('res', res);
+                //     function (data, textStatus, jqXHR) {
+                //         console.log('data', data);
                 //     }
                 // );
             });
