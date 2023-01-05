@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="table_id" class="display">
+        <!-- thead tbody tfoot 這三個 th/td 數量要一致 -->
+        <!-- 抓出3段時間 放在table裡面 時間一  時間二 時間三 -->
+
+        <!-- 0 night -->
+        <!-- 6 day -->
+        <!-- 12 day -->
+        <!-- 18 night -->
+
+        <thead>
+            <tr>
+                <th>number</th>
+                <th>縣市</th>
+                <th>時間一</th>
+                <th>時間二</th>
+                <th>時間三</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+    <!-- 授權碼 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(function () {
+            const tbody = $('tbody');
+            $.ajax({
+                type: "get",
+                url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=授權碼",
+                data: "data",
+                dataType: "json",
+                success: function (res) {
+                    let data = res.records.location;
+                    console.log('data', data)
+                    let TableContent = '';
+
+                    // 抓時間部分
+                    // data[0] 嘉義
+                    // weatherElement[2] minT 最低溫
+                    // time[0] 時間一
+                    // time[1] 時間二
+                    // time[2] 時間三
+                    console.log('data[0].weatherElement[2].time[0].startTime', data[0].weatherElement[2].time[0].startTime);
+                    console.log('data[0].weatherElement[2].time[1].startTime', data[0].weatherElement[2].time[1].startTime);
+                    console.log('data[0].weatherElement[2].time[2].startTime', data[0].weatherElement[2].time[2].startTime);
+                    const time0 = new Date(data[0].weatherElement[2].time[0].startTime);
+                    const time1 = new Date(data[0].weatherElement[2].time[1].startTime);
+                    const time2 = new Date(data[0].weatherElement[2].time[2].startTime);
+                    console.log('time0', time0);
+                    console.log('time1', time1);
+                    console.log('time2', time2);
+
+                    // getMonth 從 0~11 所以使用上主動 +1 javascript
+                    const timeText0 = `${time0.getFullYear()} / ${time0.getMonth() + 1} / ${time0.getDate()} / ${time0.getHours()}`;
+                    const timeText1 = `${time1.getFullYear()} / ${time1.getMonth() + 1} / ${time1.getDate()} / ${time1.getHours()}`;
+                    const timeText2 = `${time2.getFullYear()} / ${time2.getMonth() + 1} / ${time2.getDate()} / ${time2.getHours()}`;
+                    console.log('timeText0', timeText0);
+                    console.log('timeText1', timeText1);
+                    console.log('timeText2', timeText2);
+
+                    // 
+
+                    $('tr>th').eq(2).text(timeText0);
+                    $('tr>th').eq(3).text(timeText0);
+                    $('tr>th').eq(4).text(timeText0);
+
+                    $.each(res.records.location, function (key, value) {
+                        TableContent += `
+                                        <tr>
+                                            <td>${key + 1}</td>
+                                            <td>${value.locationName}</td>
+                                            <td>
+                                                ${value.weatherElement[0].time[0].parameter.parameterName}
+                                                ${value.weatherElement[2].time[0].parameter.parameterName}
+                                                ${value.weatherElement[4].time[0].parameter.parameterName}
+                                                &deg;C
+                                            </td>
+                                            <td>${value.locationName}</td>
+                                            <td>${value.locationName}</td>
+                                        </tr>`;
+                    });
+                    tbody.append(TableContent);
+                    $('#table_id').DataTable();
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
