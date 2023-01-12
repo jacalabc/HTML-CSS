@@ -21,6 +21,14 @@
         <button type="button" class="btn btn-primary select-btn" data-location="雲林縣">雲林縣</button>
         <button type="button" class="btn btn-primary" id="allBtn">ALL</button>
     </div>
+    <hr>
+    <div class="text-center">
+        <select name="" id="mySelect">
+            <!-- <option value=""></option> -->
+        </select>
+        <button type="button" id="getSelectBtn">getSelectBtn</button>
+    </div>
+    <hr>
     <!-- <ul id="myUl">
 
     </ul> -->
@@ -70,10 +78,12 @@
             const taoyuanBtn = $('#taoyuanBtn');
             const selectBtnAll = $('.select-btn');
             const allBtn = $('#allBtn');
+            const mySelect = $('#mySelect');
+            const getSelectBtn = $('#getSelectBtn');
 
-            let data ={};
+            let data = {};
 
-            function showData(key,value){
+            function showData(key, value) {
                 let tempRange1 = `${value.weatherElement[2].time[0].parameter.parameterName} ~ ${value.weatherElement[4].time[0].parameter.parameterName}`;
                 let tempRange2 = `${value.weatherElement[2].time[1].parameter.parameterName} ~ ${value.weatherElement[4].time[1].parameter.parameterName}`;
                 let tempRange3 = `${value.weatherElement[2].time[2].parameter.parameterName} ~ ${value.weatherElement[4].time[2].parameter.parameterName}`;
@@ -99,21 +109,21 @@
                                             <img src="./img/day/${parameterValue3}.svg" alt="${parameterName3}" title="${parameterName3}" width="50px">
                                         </td>
                                     </tr>`;
-                                    myTbody.append(TableContent);
+                myTbody.append(TableContent);
             }
 
-            function eachShowData(locationName){
-                $.each(data, function (key,value) { 
-                     if(value.locationName == locationName){
-                        console.log('asdasd',value.locationName);
-                        showData(key,value);
-                     }
+            function eachShowData(locationName) {
+                $.each(data, function (key, value) {
+                    if (value.locationName == locationName) {
+                        console.log('asdasd', value.locationName);
+                        showData(key, value);
+                    }
                 });
             }
 
-            function allData(){
-                $.each(data,function(key,value){
-                    showData(key,value);
+            function allData() {
+                $.each(data, function (key, value) {
+                    showData(key, value);
                 })
             }
 
@@ -143,17 +153,18 @@
             //     });
             // });
 
-            selectBtnAll.click(function(){
-                console.log('data',data);
+            selectBtnAll.click(function () {
+                console.log('data', data);
                 myTbody.html('');
                 let getLocation = $(this).data('location');
                 eachShowData(getLocation);
             })
 
-            allBtn.click(function(){
+            allBtn.click(function () {
                 myTbody.html('');
                 allData();
             })
+
 
             $.ajax({
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-AABAAF05-1FD3-4492-90FC-BB50C0A7BDB8",
@@ -203,8 +214,26 @@
                                                 <img src="./img/day/${parameterValue3}.svg" alt="${parameterName3}" title="${parameterName3}" width="50px">
                                             </td>
                                         </tr>`;
+
+                        // 練習一
+                        // ajax data
+                        // put select option            
+                        let idknow = `<option value="${value.locationName}">${key+1}-${value.locationName}</option>`;
+                        mySelect.append(idknow);            
                     });
+                        // 練習二
+                        // getSelectBtn
+                        // 抓select 新北市
+                        // 條件新北市...
+                        getSelectBtn.click(function(){
+                            console.log('OKOKOKOK');
+                            let getSelectValue = mySelect.val();
+                            console.log('getSelectValue??',getSelectValue);
+                            myTbody.html('');
+                            eachShowData(getSelectValue);
+                        });
                     myTbody.append(TableContent);
+
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
