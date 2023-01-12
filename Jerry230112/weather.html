@@ -13,6 +13,14 @@
 
 <body>
     <h3 class="text-center">天氣預報資料</h3>
+    <hr>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary select-btn" id="newTaipeiBtn" data-location="新北市">新北市</button>
+        <button type="button" class="btn btn-primary select-btn" id="taoyuanBtn" data-location="桃園市">桃園市</button>
+        <button type="button" class="btn btn-primary select-btn" data-location="高雄市">高雄市</button>
+        <button type="button" class="btn btn-primary select-btn" data-location="雲林縣">雲林縣</button>
+        <button type="button" class="btn btn-primary" id="allBtn">ALL</button>
+    </div>
     <!-- <ul id="myUl">
 
     </ul> -->
@@ -33,17 +41,17 @@
                 <tr>
                     <th>序號</th>
                     <th>城市</th>
-                    <th><span id="time1">時段一</span> 最低溫~最高溫</th>
-                    <th><span id="time2">時段二</span> 最低溫~最高溫</th>
-                    <th><span id="time3">時段三</span> 最低溫~最高溫</th>
+                    <th><span id="time1">時段一</span> 低溫~高溫</th>
+                    <th><span id="time2">時段二</span> 低溫~高溫</th>
+                    <th><span id="time3">時段三</span> 低溫~高溫</th>
                 </tr>
             </thead>
             <tbody id="myTbody">
                 <!-- <tr> -->
-                    <!-- <td></td> -->
-                    <!-- <td></td> -->
-                    <!-- <td></td> -->
-                    <!-- <td></td> -->
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+                <!-- <td></td> -->
                 <!-- </tr> -->
             </tbody>
         </table>
@@ -57,10 +65,95 @@
             const time1 = $('#time1');
             const time2 = $('#time2');
             const time3 = $('#time3');
+            const parameter = $('#parameter');
+            const newTaipeiBtn = $('#newTaipeiBtn');
+            const taoyuanBtn = $('#taoyuanBtn');
+            const selectBtnAll = $('.select-btn');
+            const allBtn = $('#allBtn');
+
+            let data ={};
+
+            function showData(key,value){
+                let tempRange1 = `${value.weatherElement[2].time[0].parameter.parameterName} ~ ${value.weatherElement[4].time[0].parameter.parameterName}`;
+                let tempRange2 = `${value.weatherElement[2].time[1].parameter.parameterName} ~ ${value.weatherElement[4].time[1].parameter.parameterName}`;
+                let tempRange3 = `${value.weatherElement[2].time[2].parameter.parameterName} ~ ${value.weatherElement[4].time[2].parameter.parameterName}`;
+
+                let parameterName1 = value.weatherElement[0].time[0].parameter.parameterName;
+                let parameterName2 = value.weatherElement[0].time[1].parameter.parameterName;
+                let parameterName3 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                let parameterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
+                let parameterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
+                let parameterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
+
+                let TableContent = `<tr>
+                                        <td>${key + 1}</td>
+                                        <td>${value.locationName}</td>
+                                        <td>${tempRange1}
+                                            <img src="./img/day/${parameterValue1}.svg" alt="${parameterName1}" title="${parameterName1}" width="50px">
+                                        </td>
+                                        <td>${tempRange2}
+                                            <img src="./img/day/${parameterValue2}.svg" alt="${parameterName2}" title="${parameterName2}" width="50px">
+                                        </td>
+                                        <td>${tempRange3}
+                                            <img src="./img/day/${parameterValue3}.svg" alt="${parameterName3}" title="${parameterName3}" width="50px">
+                                        </td>
+                                    </tr>`;
+                                    myTbody.append(TableContent);
+            }
+
+            function eachShowData(locationName){
+                $.each(data, function (key,value) { 
+                     if(value.locationName == locationName){
+                        console.log('asdasd',value.locationName);
+                        showData(key,value);
+                     }
+                });
+            }
+
+            function allData(){
+                $.each(data,function(key,value){
+                    showData(key,value);
+                })
+            }
 
             // myBtn.click(function () {
             //     window.print();
             // })
+
+            // newTaipeiBtn.click(function(){
+            //     console.log('data',data);
+            //     myTbody.html('');
+            //     $.each(data, function (key,value) { 
+            //          if(value.locationName == "新北市"){
+            //             console.log(value.locationName);
+            //             showData(key,value);
+            //          }
+            //     });
+            // });
+
+            // taoyuanBtn.click(function(){
+            //     console.log('data',data);
+            //     myTbody.html('');
+            //     $.each(data, function (key,value) { 
+            //          if(value.locationName == "桃園市"){
+            //             console.log(value.locationName);
+            //             showData(key,value);
+            //          }
+            //     });
+            // });
+
+            selectBtnAll.click(function(){
+                console.log('data',data);
+                myTbody.html('');
+                let getLocation = $(this).data('location');
+                eachShowData(getLocation);
+            })
+
+            allBtn.click(function(){
+                myTbody.html('');
+                allData();
+            })
 
             $.ajax({
                 url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-AABAAF05-1FD3-4492-90FC-BB50C0A7BDB8",
@@ -69,25 +162,49 @@
                 dataType: "json",
                 success: function (res) {
                     console.log('res', res);
-                    let data = res.records.location;
-                    console.log('data', data);                
-                    let time1Start = new Date().getHours();
-                    console.log(time1Start);
-                        let  TableContent='';
-                        
-                        $.each(data,function(key,value) { 
-                        let tempRange0 = `${value.weatherElement[2].time[0].parameter.parameterName} ~ ${value.weatherElement[4].time[0].parameter.parameterName}`;
-                        let tempRange1 = `${value.weatherElement[2].time[1].parameter.parameterName} ~ ${value.weatherElement[4].time[1].parameter.parameterName}`;
-                        let tempRange2 = `${value.weatherElement[2].time[2].parameter.parameterName} ~ ${value.weatherElement[4].time[2].parameter.parameterName}`;
-                             TableContent +=`<tr>
-                                                <td>${key+1}</td>
-                                                <td>${value.locationName}</td>
-                                                <td>${tempRange0}</td>
-                                                <td>${tempRange1}</td>
-                                                <td>${tempRange2}</td>
-                                            </tr>`;
-                        });
-                            myTbody.append(TableContent);
+                    data = res.records.location;
+                    console.log('data', data);
+
+                    let TableContent = '';
+
+                    $.each(data, function (key, value) {
+                        let tempRange1 = `${value.weatherElement[2].time[0].parameter.parameterName} ~ ${value.weatherElement[4].time[0].parameter.parameterName}`;
+                        let tempRange2 = `${value.weatherElement[2].time[1].parameter.parameterName} ~ ${value.weatherElement[4].time[1].parameter.parameterName}`;
+                        let tempRange3 = `${value.weatherElement[2].time[2].parameter.parameterName} ~ ${value.weatherElement[4].time[2].parameter.parameterName}`;
+
+                        let startTime1 = value.weatherElement[0].time[0].startTime;
+                        let startTime2 = value.weatherElement[0].time[1].startTime;
+                        let startTime3 = value.weatherElement[0].time[2].startTime;
+                        time1.text(startTime1);
+                        time2.text(startTime2);
+                        time3.text(startTime3);
+                        // let parameter1 = `${value.weatherElement[0].time[0].parameter.parameterName} - ${value.weatherElement[0].time[0].parameter.parameterValue}`;
+                        // let parameter2 = `${value.weatherElement[0].time[1].parameter.parameterName} - ${value.weatherElement[0].time[1].parameter.parameterValue}`;
+                        // let parameter3 = `${value.weatherElement[0].time[2].parameter.parameterName} - ${value.weatherElement[0].time[2].parameter.parameterValue}`;
+
+                        let parameterName1 = value.weatherElement[0].time[0].parameter.parameterName;
+                        let parameterName2 = value.weatherElement[0].time[1].parameter.parameterName;
+                        let parameterName3 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                        let parameterValue1 = value.weatherElement[0].time[0].parameter.parameterValue;
+                        let parameterValue2 = value.weatherElement[0].time[1].parameter.parameterValue;
+                        let parameterValue3 = value.weatherElement[0].time[2].parameter.parameterValue;
+
+                        TableContent += `<tr>
+                                            <td>${key + 1}</td>
+                                            <td>${value.locationName}</td>
+                                            <td>${tempRange1}
+                                                <img src="./img/day/${parameterValue1}.svg" alt="${parameterName1}" title="${parameterName1}" width="50px">
+                                            </td>
+                                            <td>${tempRange2}
+                                                <img src="./img/day/${parameterValue2}.svg" alt="${parameterName2}" title="${parameterName2}" width="50px">
+                                            </td>
+                                            <td>${tempRange3}
+                                                <img src="./img/day/${parameterValue3}.svg" alt="${parameterName3}" title="${parameterName3}" width="50px">
+                                            </td>
+                                        </tr>`;
+                    });
+                    myTbody.append(TableContent);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
 
