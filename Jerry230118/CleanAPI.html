@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 授權碼 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
+        integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(function () {
+            const tbody = $('tbody');
+            $.ajax({
+                type: "get",
+                url: "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-AABAAF05-1FD3-4492-90FC-BB50C0A7BDB8",
+                data: "data",
+                dataType: "json",
+                success: function (res) {
+                    let data = res.records.location;
+                    console.log('data', data)
+
+                    let newObj = [];
+
+                    let name = data[0].locationName;
+                    let addObj = {};
+
+                    // time[0]
+                    let maxTByTime1 = data[0].weatherElement[4].time[0].parameter.parameterName;
+                    let minTByTime1 = data[0].weatherElement[2].time[0].parameter.parameterName;
+                    let time1 = data[0].weatherElement[4].time[0].startTime;
+                    let dateByTime1 = new Date(time1).getDate();
+                    addObj = {
+                        'name': name,
+                        'maxTByTime1': maxTByTime1,
+                        'minTByTime1': minTByTime1,
+                        'dateByTime1': dateByTime1,
+                        'time1': time1
+                    };
+                    newObj.push(addObj);
+
+                    // time[1]
+                    let maxTByTime2 = data[0].weatherElement[4].time[1].parameter.parameterName;
+                    let minTByTime2 = data[0].weatherElement[2].time[1].parameter.parameterName;
+                    let time2 = data[0].weatherElement[4].time[1].startTime;
+                    let dateByTime2 = new Date(time2).getDate();
+                    addObj = {
+                        'name': name,
+                        'maxTByTime2': maxTByTime2,
+                        'minTByTime2': minTByTime2,
+                        'dateByTime2': dateByTime2,
+                        'time2': time2
+                    };
+                    newObj.push(addObj);
+
+                    // time[2]
+                    let maxTByTime3 = data[0].weatherElement[4].time[2].parameter.parameterName;
+                    let minTByTime3 = data[0].weatherElement[2].time[2].parameter.parameterName;
+                    let time3 = data[0].weatherElement[4].time[2].startTime;
+                    let dateByTime3 = new Date(time3).getDate();
+                    addObj = {
+                        'name': name,
+                        'maxTByTime3': maxTByTime3,
+                        'minTByTime3': minTByTime3,
+                        'dateByTime3': dateByTime3,
+                        'time3': time3
+                    };
+                    newObj.push(addObj);
+                    console.log('newObj', newObj);
+
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
