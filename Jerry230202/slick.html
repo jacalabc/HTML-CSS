@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .slider {
+            width: 50%;
+            margin: 100px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+        .slick-slide img {
+            /* width: 100%; */
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
+
+        .slick-active {
+            opacity: .5;
+        }
+
+        .slick-current {
+            opacity: 1;
+        }
+
+        .myDiv {
+            text-align: center;
+
+        }
+    </style>
+    <title>這是slick套件</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">single-item</h1>
+    <div class="slider single-item" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+        <div class="myDiv">
+            <h3>1</h3>
+            <img src="https://picsum.photos/id/237/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>2</h3>
+            <img src="https://picsum.photos/id/25/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>3</h3>
+            <img src="https://picsum.photos/id/16/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>4</h3>
+            <img src="https://picsum.photos/id/43/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>5</h3>
+            <img src="https://picsum.photos/id/49/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>6</h3>
+            <img src="https://picsum.photos/id/54/300/300" alt="">
+        </div>
+    </div>
+
+    <h1 style="text-align: center;">multiple-items</h1>
+    <div class="slider multiple-items">
+        <div class="myDiv">
+            <h3>1</h3>
+            <img src="https://picsum.photos/id/237/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>2</h3>
+            <img src="https://picsum.photos/id/25/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>3</h3>
+            <img src="https://picsum.photos/id/16/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>4</h3>
+            <img src="https://picsum.photos/id/43/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>5</h3>
+            <img src="https://picsum.photos/id/49/300/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>6</h3>
+            <img src="https://picsum.photos/id/54/300/300" alt="">
+        </div>
+    </div>
+
+    <h1 style="text-align: center;">center</h1>
+    <div class="slider center">
+        <div class="myDiv">
+            <h3>1</h3>
+            <img src="https://picsum.photos/id/237/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>2</h3>
+            <img src="https://picsum.photos/id/25/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>3</h3>
+            <img src="https://picsum.photos/id/16/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>4</h3>
+            <img src="https://picsum.photos/id/43/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>5</h3>
+            <img src="https://picsum.photos/id/49/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>6</h3>
+            <img src="https://picsum.photos/id/54/200/300" alt="">
+        </div>
+    </div>
+
+    <h2 style="text-align: center;">Slider Syncing</h2>
+    <div class="slider slider-for">
+        <div class="myDiv">
+            <h3>1</h3>
+            <img src="https://picsum.photos/id/237/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>2</h3>
+            <img src="https://picsum.photos/id/25/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>3</h3>
+            <img src="https://picsum.photos/id/16/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>4</h3>
+            <img src="https://picsum.photos/id/43/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>5</h3>
+            <img src="https://picsum.photos/id/49/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>6</h3>
+            <img src="https://picsum.photos/id/54/200/300" alt="">
+        </div>
+    </div>
+    <div class="slider slider-nav">
+        <div class="myDiv">
+            <h3>1</h3>
+            <img src="https://picsum.photos/id/237/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>2</h3>
+            <img src="https://picsum.photos/id/25/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>3</h3>
+            <img src="https://picsum.photos/id/16/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>4</h3>
+            <img src="https://picsum.photos/id/43/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>5</h3>
+            <img src="https://picsum.photos/id/49/200/300" alt="">
+        </div>
+        <div class="myDiv">
+            <h3>6</h3>
+            <img src="https://picsum.photos/id/54/200/300" alt="">
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <!-- slick -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        $(function () {
+            $('.single-item').slick();
+
+            $('.multiple-items').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
+            });
+
+            $('.center').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: true,
+                centerMode: true,
+                focusOnSelect: true
+            });
+
+        })
+    </script>
+
+</body>
+
+</html>
